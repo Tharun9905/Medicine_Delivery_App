@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import Layout from '../components/common/Layout';
 import LocationPicker from '../components/common/LocationPicker';
@@ -12,7 +12,7 @@ export default function LocationTest() {
   const [permissionStatus, setPermissionStatus] = useState('checking');
 
   // Check location permission on page load
-  useState(() => {
+  useEffect(() => {
     checkLocationSupport();
   }, []);
 

@@ -423,34 +423,3 @@ export default function ConsultDoctor() {
 //     </Layout>
 //   );
 // }
-
-import Layout from '../components/common/Layout';
-
-export default function ConsultDoctor() {
-  return (
-    <Layout title="Consult a Doctor - Coming Soon">
-      <div className="max-w-4xl mx-auto py-24 px-4 text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Consult a Doctor — Coming Soon</h1>
-        <p className="text-lg text-gray-600 mb-6">
-          We're building a seamless way to consult verified doctors online — video, audio and chat consultations
-          will be available soon. Stay tuned for updates.
-        </p>
-        <div className="flex items-center justify-center gap-3">
-          <a
-            href="/"
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
-          >
-            Back to Home
-          </a>
-          <button
-            className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-            disabled
-            aria-disabled="true"
-          >
-            Notify Me (coming soon)
-          </button>
-        </div>
-      </div>
-    </Layout>
-  );
-}

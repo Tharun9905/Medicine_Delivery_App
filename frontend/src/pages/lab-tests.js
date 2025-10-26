@@ -732,34 +732,3 @@ export default function LabTestsPage() {
 //     </Layout>
 //   );
 // }
-
-import Layout from '../components/common/Layout';
-
-export default function LabTestsPage() {
-  return (
-    <Layout title="Lab Tests - MediQuick">
-      <div className="max-w-4xl mx-auto py-24 px-4 text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Lab Tests — Coming Soon</h1>
-        <p className="text-lg text-gray-600 mb-6">
-          We're building an easy way to book lab tests, view reports, and get home collection —
-          this feature will be available soon. Stay tuned!
-        </p>
-        <div className="flex items-center justify-center gap-3">
-          <a
-            href="/"
-            className="px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors"
-          >
-            Back to Home
-          </a>
-          <a
-            href="/"
-            className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-            aria-disabled
-          >
-            Notify Me (coming soon)
-          </a>
-        </div>
-      </div>
-    </Layout>
-  );
-}
