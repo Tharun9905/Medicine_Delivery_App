@@ -13,7 +13,11 @@
     "start": "cd frontend && npm start",
     "start:backend": "cd backend && npm start",
     "start:frontend": "cd frontend && npm start",
-    "test": "cd backend && npm test && cd ../frontend && npm test"
+    "test": "cd backend && npm test && cd ../frontend && npm test",
+    "predeploy": "node deploy.js",
+    "deploy:backend": "cd backend && vercel",
+    "deploy:frontend": "cd frontend && vercel",
+    "deploy": "npm run predeploy && npm run deploy:backend && npm run deploy:frontend"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"

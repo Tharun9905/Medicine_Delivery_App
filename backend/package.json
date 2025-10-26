@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "echo 'No build required for backend'",
-    "test": "jest"
+    "build": "echo 'Backend ready for deployment'",
+    "test": "jest",
+    "vercel-build": "echo 'Building for Vercel deployment'"
   },
   "dependencies": {
     "axios": "^1.6.2",

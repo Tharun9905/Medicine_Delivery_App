@@ -20,10 +20,18 @@ const nextConfig = {
     ],
   },
   env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api',
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || (
+      process.env.NODE_ENV === 'production' 
+        ? 'https://mediquick-backend-qux6svcjk-tharun-sais-projects-3dfd7f8f.vercel.app/api'
+        : 'http://localhost:5000/api'
+    ),
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-    NEXT_PUBLIC_SOCKET_URL: process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:5000',
+    NEXT_PUBLIC_SOCKET_URL: process.env.NEXT_PUBLIC_SOCKET_URL || (
+      process.env.NODE_ENV === 'production' 
+        ? 'https://mediquick-backend-qux6svcjk-tharun-sais-projects-3dfd7f8f.vercel.app'
+        : 'http://localhost:5000'
+    ),
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.resolve.fallback = {
@@ -33,13 +41,24 @@ const nextConfig = {
     return config
   },
   async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`,
-      },
-    ]
-  }
+    if (process.env.NODE_ENV === 'development') {
+      return [
+        {
+          source: '/api/:path*',
+          destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`,
+        },
+      ]
+    }
+    return []
+  },
+  // Output standalone for Vercel deployment
+  output: 'standalone',
+  // Disable x-powered-by header
+  poweredByHeader: false,
+  // Enable compression
+  compress: true,
+  // Generate ETags for pages
+  generateEtags: true,
 }
 
 module.exports = nextConfig

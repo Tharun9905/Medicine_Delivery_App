@@ -1,7 +1,22 @@
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+// Get API URL based on environment
+const getApiUrl = () => {
+  if (typeof window !== 'undefined') {
+    // Client-side
+    return process.env.NEXT_PUBLIC_API_URL || 
+           process.env.NEXT_PUBLIC_API_BASE_URL || 
+           'http://localhost:5000/api';
+  } else {
+    // Server-side
+    return process.env.NEXT_PUBLIC_API_URL || 
+           process.env.NEXT_PUBLIC_API_BASE_URL || 
+           'http://localhost:5000/api';
+  }
+};
+
+const API_URL = getApiUrl();
 
 const api = axios.create({
   baseURL: API_URL,

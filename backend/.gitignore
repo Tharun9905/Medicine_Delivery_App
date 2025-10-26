@@ -72,3 +72,4 @@ jest.config.js.bak
 # Lock files (optional, some prefer to keep them)
 # package-lock.json
 # yarn.lock
+.vercel

@@ -53,3 +53,4 @@ Thumbs.db
 .cache/
 .tmp/
 .eslintcache
+.vercel

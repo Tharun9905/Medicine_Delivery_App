@@ -126,6 +126,22 @@ io.on('connection', (socket) => {
   });
 });
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    message: 'MediQuick Backend API',
+    status: 'Active',
+    version: '1.0.0',
+    endpoints: {
+      health: '/health',
+      auth: '/api/auth',
+      medicines: '/api/medicines',
+      cart: '/api/cart',
+      orders: '/api/orders'
+    }
+  });
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ 
