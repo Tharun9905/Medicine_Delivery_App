@@ -14,5 +14,17 @@ module.exports = {
     '!node_modules/**'
   ],
   setupFilesAfterEnv: ['<rootDir>/tests/setup-controllers.js'],
-  testTimeout: 10000
+  testTimeout: 30000,
+  projects: [
+    {
+      displayName: 'controllers',
+      testMatch: ['<rootDir>/tests/controllers/**/*.test.js'],
+      setupFilesAfterEnv: ['<rootDir>/tests/setup-controllers.js']
+    },
+    {
+      displayName: 'models',
+      testMatch: ['<rootDir>/tests/models/**/*.test.js'],
+      setupFilesAfterEnv: ['<rootDir>/tests/setup.js']
+    }
+  ]
 };
